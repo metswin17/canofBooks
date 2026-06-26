@@ -8,7 +8,7 @@ function About() {
       </p>
       <p>
         GitHub:{' '}
-        <a href="https://github.com/YOUR-GITHUB-https://github.com/metswin17" target="_blank">
+        <a href="https://github.com/metswin17" target="_blank">
           View my GitHub profile
         </a>
       </p>
