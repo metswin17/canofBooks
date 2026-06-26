@@ -1,33 +1,23 @@
-import { useEffect, useState } from 'react'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import BestBooks from './BestBooks'
+import About from './About'
 import './App.css'
 
-const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:3001'
-
 function App() {
-  const [books, setBooks] = useState([])
-
-  useEffect(() => {
-    async function getBooks() {
-      const response = await fetch(`${SERVER_URL}/books`)
-      const booksData = await response.json()
-      setBooks(booksData)
-    }
-
-    getBooks()
-  }, [])
-
   return (
-    <main>
-      <h1>Can of Books</h1>
+    <BrowserRouter>
+      <header>
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+        </nav>
+      </header>
 
-      {books.map((book) => (
-        <section key={book._id}>
-          <h2>{book.title}</h2>
-          <p>{book.description}</p>
-          <p>Status: {book.status}</p>
-        </section>
-      ))}
-    </main>
+      <Routes>
+        <Route path="/" element={<BestBooks />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

@@ -182,3 +182,23 @@
     border-right-color: var(--border);
   }
 }
+
+main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+nav {
+  display: flex;
+  gap: 16px;
+  padding: 24px;
+}
+
+.book-slide {
+  min-height: 260px;
+  padding: 48px;
+  background-color: #f4f1ea;
+  color: #222;
+  text-align: center;
+}
