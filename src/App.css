@@ -202,3 +202,10 @@ nav {
   color: #222;
   text-align: center;
 }
+
+body {
+  background-image: url("bookjarred.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
