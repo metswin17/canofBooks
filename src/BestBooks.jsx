@@ -7,8 +7,13 @@ const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:3001'
 class BestBooks extends React.Component {
   constructor(props) {
     super(props)
+    
     this.state = {
-      books: []
+      books: [],
+      showForm: false,
+      title: '',
+      description: '',
+      status: ''
     }
   }
 
@@ -22,6 +27,16 @@ class BestBooks extends React.Component {
     return (
       <main>
         <h1>Can of Books</h1>
+
+        <button
+  onClick={() =>
+    this.setState({
+      showForm: true
+    })
+  }
+>
+  Add Book
+</button>
 
         <button>Add Book</button>
 
