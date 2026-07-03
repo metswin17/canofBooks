@@ -1,5 +1,6 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel'
+import axios from 'axios';
 
 const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:3001'
 
@@ -21,6 +22,8 @@ class BestBooks extends React.Component {
     return (
       <main>
         <h1>Can of Books</h1>
+
+        <button>Add Book</button>
 
         {this.state.books.length > 0 ? (
           <Carousel>
