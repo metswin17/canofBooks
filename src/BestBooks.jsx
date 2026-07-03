@@ -38,6 +38,31 @@ onClick={() =>
 Add Book
 </button>
 
+{this.state.showForm && (
+  <form>
+
+    <div>
+      <label>Title</label>
+      <input type="text" />
+    </div>
+
+    <div>
+      <label>Description</label>
+      <input type="text" />
+    </div>
+
+    <div>
+      <label>Status</label>
+      <input type="text" />
+    </div>
+
+    <button type="submit">
+      Save Book
+    </button>
+
+  </form>
+)}
+
         {this.state.books.length > 0 ? (
           <Carousel>
             {this.state.books.map((book) => (
