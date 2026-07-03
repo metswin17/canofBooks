@@ -28,17 +28,15 @@ class BestBooks extends React.Component {
       <main>
         <h1>Can of Books</h1>
 
-        <button
-  onClick={() =>
-    this.setState({
-      showForm: true
-    })
-  }
+<button
+onClick={() =>
+  this.setState({
+    showForm: true
+  })
+}
 >
-  Add Book
+Add Book
 </button>
-
-        <button>Add Book</button>
 
         {this.state.books.length > 0 ? (
           <Carousel>
