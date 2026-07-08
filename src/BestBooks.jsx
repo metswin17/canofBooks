@@ -4,6 +4,12 @@ import axios from 'axios';
 
 const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:3001'
 
+handleChange (event) {  
+  this.setState({ 
+event.target.name
+event.target.value 
+})
+}
 class BestBooks extends React.Component {
   constructor(props) {
     super(props)
@@ -21,6 +27,12 @@ class BestBooks extends React.Component {
     const response = await fetch(`${SERVER_URL}/books`)
     const booksData = await response.json()
     this.setState({ books: booksData })
+  }
+{
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
   }
 
   render() {
@@ -82,5 +94,5 @@ Add Book
     )
   }
 }
-
+}
 export default BestBooks
