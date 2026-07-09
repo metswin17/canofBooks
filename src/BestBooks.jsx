@@ -29,10 +29,27 @@ class BestBooks extends React.Component {
   handleChange(event) {
     this.setState({ 
       [event.target.name]: event.target.value
-    })
+    });
   }
 
+  async handleSubmit(event) {
+    event.preventDefault();
+  
+    const newBook = {
+      title: this.state.title,
+      description: this.state.description,
+      status: this.state.status
+    };
+    
+    const response = await axios.post(`${SERVER_URL}/books`, newBook);
+    
+    this.setState({
+      books: [...this.state.books, response.data],
+      showForm: false
+    });
+  }
   render() {
+  
     return (
       <main>
         <h1>Can of Books</h1>
@@ -49,7 +66,7 @@ Add Book
 </button>
 
 {this.state.showForm && (
-  <form>
+  <form onSubmit={this.handleSubmit}>
 
     <div>
       <label>Title</label>

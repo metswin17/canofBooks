@@ -208,4 +208,5 @@ body {
   background-size: 71vw auto;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: #8b5a2b; /* outside border color */
 }
