@@ -4,12 +4,7 @@ import axios from 'axios';
 
 const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:3001'
 
-handleChange (event) {  
-  this.setState({ 
-event.target.name
-event.target.value 
-})
-}
+
 class BestBooks extends React.Component {
   constructor(props) {
     super(props)
@@ -21,6 +16,8 @@ class BestBooks extends React.Component {
       description: '',
       status: ''
     }
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
   async componentDidMount() {
@@ -28,9 +25,9 @@ class BestBooks extends React.Component {
     const booksData = await response.json()
     this.setState({ books: booksData })
   }
-{
+
   handleChange(event) {
-    this.setState({
+    this.setState({ 
       [event.target.name]: event.target.value
     })
   }
@@ -47,6 +44,7 @@ onClick={() =>
   })
 }
 >
+  
 Add Book
 </button>
 
@@ -55,18 +53,34 @@ Add Book
 
     <div>
       <label>Title</label>
-      <input type="text" />
+      <input
+  type="text"
+  name="title"
+  value={this.state.title}
+  onChange={this.handleChange}
+/>
     </div>
 
     <div>
       <label>Description</label>
-      <input type="text" />
-    </div>
-
+      <input
+  type="text"
+  name="description"
+  value={this.state.description}
+  onChange={this.handleChange}
+    
+/>
+</div>
     <div>
       <label>Status</label>
-      <input type="text" />
-    </div>
+      <input
+  type="text"
+  name="status"
+  value={this.state.status}
+  onChange={this.handleChange}
+
+  />  
+  </div>
 
     <button type="submit">
       Save Book
@@ -94,5 +108,5 @@ Add Book
     )
   }
 }
-}
+
 export default BestBooks
