@@ -205,7 +205,7 @@ nav {
 
 body {
   background-image: url("bookjarred.jpg");
-  background-size: cover;
+  background-size: 71vw auto;
   background-position: center;
   background-repeat: no-repeat;
 }
