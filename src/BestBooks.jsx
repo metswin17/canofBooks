@@ -18,6 +18,7 @@ class BestBooks extends React.Component {
     }
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   async componentDidMount() {
@@ -34,6 +35,8 @@ class BestBooks extends React.Component {
 
   async handleSubmit(event) {
     event.preventDefault();
+    
+    console.log("handleSubmit fired");
   
     const newBook = {
       title: this.state.title,
@@ -42,6 +45,8 @@ class BestBooks extends React.Component {
     };
     
     const response = await axios.post(`${SERVER_URL}/books`, newBook);
+
+    console.log(response.data);
     
     this.setState({
       books: [...this.state.books, response.data],
