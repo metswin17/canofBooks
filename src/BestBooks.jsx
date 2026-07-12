@@ -53,6 +53,14 @@ class BestBooks extends React.Component {
       showForm: false
     });
   }
+
+  async handleDelete(bookId) {
+    await axios.delete(`${SERVER_URL}/books/${bookId}`);
+    this.setState({
+      books: this.state.books.filter(book => book._id !== bookId)
+    });
+  }
+
   render() {
   
     return (
@@ -119,6 +127,11 @@ Add Book
                   <h2>{book.title}</h2>
                   <p>{book.description}</p>
                   <p>Status: {book.status}</p>
+
+<button onClick={() => this.handleDelete(book._id)}>
+Delete Book
+</button>
+
                 </div>
               </Carousel.Item>
             ))}
@@ -126,6 +139,8 @@ Add Book
         ) : (
           <p>The book collection is empty.</p>
         )}
+
+
       </main>
     )
   }
