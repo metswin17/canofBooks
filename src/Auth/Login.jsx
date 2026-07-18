@@ -11,7 +11,13 @@ function Login() {
     loginWithRedirect();
   }
 
-  return !isAuthenticated &&
-    <button onClick={handleLogin}>Log in</button>;
+  return (
+    !isAuthenticated && (
+      <button onClick={handleLogin}>
+        Log in
+      </button>
+    )
+  );
 }
+
 export default Login;
