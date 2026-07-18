@@ -78,6 +78,7 @@ this.setState({
 
   async handleDelete(bookId) {
     await axios.delete(`${SERVER_URL}/books/${bookId}`);
+
     this.setState({
       books: this.state.books.filter(book => book._id !== bookId)
     });
