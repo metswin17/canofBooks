@@ -19,6 +19,10 @@ function App() {
     user, // User profile
   } = useAuth0();
 
+  if (isLoading) {
+    return <h2>Loading authentication...</h2>;
+  }
+
 
   return (
     <BrowserRouter>
