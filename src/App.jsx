@@ -27,14 +27,16 @@ function App() {
   return (
     <BrowserRouter>
       <header>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
+  <nav>
+    <Link to="/">Home</Link>
+    <Link to="/about">About</Link>
 
-          <AuthButtons />
+    {isAuthenticated && <Link to="/profile">Profile</Link>}
 
-        </nav>
-      </header>
+    <AuthButtons />
+
+  </nav>
+</header>
 
       <Routes>
   <Route
