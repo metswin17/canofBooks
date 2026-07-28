@@ -3,6 +3,7 @@ import Carousel from 'react-bootstrap/Carousel'
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:3001'
 
@@ -263,4 +264,14 @@ Delete Book
   }
 }
 
-export default BestBooks
+function BestBooksWithAuth() {
+  const { getAccessTokenSilently } = useAuth0();
+
+  return (
+    <BestBooks 
+      getAccessTokenSilently={getAccessTokenSilently}
+    />
+  );
+}
+
+export default BestBooksWithAuth;
