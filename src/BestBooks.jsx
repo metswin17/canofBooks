@@ -31,9 +31,18 @@ class BestBooks extends React.Component {
   }
 
   async componentDidMount() {
-    const response = await fetch(`${SERVER_URL}/books`)
-    const booksData = await response.json()
-    this.setState({ books: booksData })
+
+    const token = await this.props.getAccessTokenSilently();
+  
+    const response = await fetch(`${SERVER_URL}/books`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+  
+    const booksData = await response.json();
+  
+    this.setState({ books: booksData });
   }
 
   handleChange(event) {

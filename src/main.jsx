@@ -10,7 +10,11 @@ createRoot(document.getElementById("root")).render(
     <Auth0Provider
       domain="dev-n0qs8egiaypxuqii.us.auth0.com"
       clientId="svV6N9ZQsCqFPe409Ez8rr3NavbRGluA"
-      authorizationParams={{ redirect_uri: window.location.origin }}
+      authorizationParams={{
+        redirect_uri: window.location.origin,
+        audience: "http://CanofBooksback"
+        
+      }}
     >
       <App />
     </Auth0Provider>
